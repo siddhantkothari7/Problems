@@ -1,37 +1,34 @@
 //Leetcode 67
 
-//Not complete
+//import java.util.*;
 public class AddBinary {
 	public static String addBinary(String a, String b) {
-		StringBuilder str = new StringBuilder();
-		int i = a.length();
-		int j = b.length();
+		StringBuilder toReturn = new StringBuilder();
 		int carry = 0;
-		while(i > 0 && j > 0){
-			int num_a = Character.getNumericValue(a.charAt(i));
-			int num_b = Character.getNumericValue(a.charAt(j));
-			int sum = num_a + num_b + carry;
-			carry = 0;
-			if(sum == 3) {
-				carry = 1;
-				str.append("1");
-			} else if (sum == 2){
-				carry = 1;
-				str.append("0");
-			} else if (sum == 1){
-				str.append("1");
-			} else {
-				str.append("0");
+		int a_end = a.length() - 1;
+		int b_end = b.length() - 1;
+		
+		while(a_end >= 0 || b_end >= 0){
+			int sum = carry;
+			if(b_end >= 0){
+				sum += Character.getNumericValue(b.charAt(b_end));
+				b_end -= 1;
 			}
-			i--;
-			j--;
+			if(a_end >= 0){
+				sum += Character.getNumericValue(a.charAt(a_end));
+				a_end -= 1;
+			}
+			toReturn.append(sum%2);
+			carry = sum/2;
 		}
-		return str.toString();	
+
+		if(carry != 0) toReturn.append(carry);
+		return toReturn.reverse().toString();
     }
 
 	public static void main(String[] args) {
-		System.out.println(addBinary("11", "1"));
-
+		//System.out.println(addBinary("11", "1"));
+		System.out.println(addBinary("1010", "1011"));
 	}
 
 }

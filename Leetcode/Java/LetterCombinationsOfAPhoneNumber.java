@@ -1,9 +1,10 @@
+//Leetcode 17
+
+//not complete
 //import java.util.*;
-
-//Not Complete
-
 public class LetterCombinationsOfAPhoneNumber {
 	// public List<String> letterCombinations(String digits) {
+	// 	if(digits.length() == 0) return new ArrayList<String>();
 	// 	HashMap<Integer, String> map = new HashMap<>();
 	// 	map.put(2, "abc");
 	// 	map.put(3, "def");
@@ -14,9 +15,9 @@ public class LetterCombinationsOfAPhoneNumber {
 	// 	map.put(8, "tuv");
 	// 	map.put(9, "wxyz");
 		
-	// 	for(int i=0; i < digits.length(); i++) {
-	// 		map.get(digits.charAt(i));
-	// 	}
+	// 	// for(int i=0; i < digits.length(); i++) {
+	// 	// 	map.get(digits.charAt(i));
+	// 	// }
 		
     // }
 
