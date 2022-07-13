@@ -1,33 +1,18 @@
-#!/bin/python3
+def LonelyInteger(a):
+    a.sort()
+    n = len(a)
+    i = 0
+    while(i < n):
+        print("i is: ", i, "a[i] is: ", a[i])
+        if(i == n-1):
+            return a[i]
+        if(a[i] == a[i+1]):
+            i += 2
+            continue
+        else:
+            return a[i]
 
-import math
-import os
-import random
-import re
-import sys
-from collections import Counter
 
-#
-# Complete the 'lonelyinteger' function below.
-#
-# The function is expected to return an INTEGER.
-# The function accepts INTEGER_ARRAY a as parameter.
-#
 
-def lonelyinteger(a):
-    # Write your code here
-    dic = Counter(a)
-    return min(dic, key=dic.get)
-
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
-    n = int(input().strip())
-
-    a = list(map(int, input().rstrip().split()))
-
-    result = lonelyinteger(a)
-
-    fptr.write(str(result) + '\n')
-
-    fptr.close()
+a = [1,2,3,4,3,2,1]
+print(LonelyInteger(a))
